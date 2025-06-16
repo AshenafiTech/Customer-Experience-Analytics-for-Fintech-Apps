@@ -30,3 +30,4 @@ for bank, package in apps.items():
 df = pd.DataFrame(all_reviews)
 df.to_csv("data/bank_reviews_raw.csv", index=False)
 print("Raw review data saved to data/bank_reviews_raw.csv")
+# scripts/scrape_reviews.py
