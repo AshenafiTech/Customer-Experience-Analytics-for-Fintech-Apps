@@ -71,19 +71,11 @@ def insert_reviews(df, user, password, dsn):
         bank_id = cur.fetchone()[0]
         cur.execute("""
             INSERT INTO reviews (
-                bank_id, review, review_clean, textblob_sentiment, textblob_polarity,
-                bert_sentiment, bert_score, vader_compound, theme
-            ) VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9)
+                bank_id, review_text
+            ) VALUES (:1, :2)
         """, (
             bank_id,
-            row['review'],
-            row['review_clean'],
-            row['textblob_sentiment'],
-            row['textblob_polarity'],
-            row['bert_sentiment'],
-            row['bert_score'],
-            row['vader_compound'],
-            row['theme']
+            row['review']
         ))
     conn.commit()
     cur.close()
